@@ -63,7 +63,7 @@ function App() {
     let { charge, amount } = expense
     setCharge(charge)
     setAmount(amount)
-    setEdit(true)
+    setEdit(!edit)
     setId(id)
   }
 
@@ -104,26 +104,36 @@ function App() {
       }
       <h1>Budget Calculator</h1>
       <main className="App">
-        <ExpenseForm
-          charge={charge}
-          amount={amount}
-          handleCharge={handleCharge}
-          handleAmount={handleAmount}
-          handleSubmit={handleSubmit}
-          edit={edit}
-        />
+        {
+          !edit &&
+          <ExpenseForm
+            charge={charge}
+            amount={amount}
+            handleCharge={handleCharge}
+            handleAmount={handleAmount}
+            handleSubmit={handleSubmit}
+          />
+        }
         <ExpenseList
           expenses={expenses}
           handleDelete={handleDelete}
           handleEdit={handleEdit}
           clearItems={clearItems}
+          handleCharge={handleCharge}
+          handleAmount={handleAmount}
+          handleSubmit={handleSubmit}
+          edit={edit}
+          amount={amount}
         />
       </main>
-      <h1>
-        total spending: <span className="total">${expenses.reduce((accumulator, currentItem) => {
-          return accumulator += parseInt(currentItem.amount)
-        }, 0)}</span>
-      </h1>
+      { 
+        expenses.length > 0 &&
+        <h1>
+          total spending: <span className="total">£{expenses.reduce((accumulator, currentItem) => {
+            return accumulator += parseInt(currentItem.amount)
+          }, 0)}</span>
+        </h1>
+      }
 
     </React.Fragment>
   );

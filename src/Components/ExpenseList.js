@@ -2,7 +2,7 @@ import React from 'react'
 import ExpenseItem from "./ExpenseItem"
 import { MdDelete } from 'react-icons/md'
 
-const ExpenseList = ({ expenses, handleEdit, handleDelete, clearItems }) => {
+const ExpenseList = ({ expenses, handleEdit, handleDelete, clearItems, edit, handleAmount, handleCharge, handleSubmit, amount }) => {
     return (
         <React.Fragment>
             <ul className="list">
@@ -10,8 +10,13 @@ const ExpenseList = ({ expenses, handleEdit, handleDelete, clearItems }) => {
                     <ExpenseItem 
                         key={ expense.id }
                         expense={ expense }
-                        handleEdit={handleEdit}
                         handleDelete={handleDelete}
+                        edit={ edit }
+                        handleEdit={handleEdit}
+                        handleAmount={handleAmount}
+                        handleSubmit={handleSubmit}
+                        amount={expense.amount}
+                        handleCharge={handleCharge}
                     />
                 ))}
             </ul>

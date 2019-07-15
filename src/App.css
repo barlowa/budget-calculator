@@ -26,18 +26,19 @@ h1 {
 .App {
   margin: 0 auto;
   max-width: 1280px;
-  width: 90%;
+  width: 80%;
   background: var(--mainWhite);
-  padding-bottom: 2rem;
+  padding: 20px;
   border-radius: 2px;
 }
 .form-center {
-  display: flex;
+  display: grid;
   padding: 0 1rem;
+  grid-auto-flow: column;
+  align-items: center;
 }
 .form-group {
   padding: 1rem 0.75rem;
-  flex: 0 0 50%;
 }
 label {
   display: block;
@@ -88,7 +89,7 @@ label {
   font-size: 1.2rem;
 }
 .list {
-  margin: 2rem 0.75rem 0 0.75rem;
+  margin: 1rem auto 0 auto;
   list-style-type: none;
   border: none;
   padding: 0;
@@ -97,7 +98,8 @@ label {
   background-color: var(--mainWhite);
   line-height: 1.5rem;
   padding: 10px 20px;
-  margin-bottom: 1rem;
+  width: 95%;
+  margin: 1rem auto;
   border: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
@@ -146,42 +148,17 @@ label {
   padding: 2px 5px;
 }
 .alert {
-  padding: 0.75rem 1.25rem;
+  padding: 0.55rem 1.25rem;
   color: var(--mainWhite);
   text-align: center;
-  text-transform: capitalize;
-  width: 90%;
-  margin: 2rem auto 0 auto;
+  width: 100%;
   border-radius: 2px;
-  text-transform: capitalize;
+  position: absolute;
+  top: 0;
 }
 .alert-danger {
   background: var(--mainRed);
 }
 .alert-success {
   background: var(--mainGreen);
-}
-@media screen and (min-width: 601px) {
-  .App,
-  .list,
-  .alert {
-    width: 85%;
-  }
-
-  .list {
-    margin: 2rem auto 0 auto;
-  }
-}
-@media screen and (min-width: 993px) {
-  .App,
-  .list,
-  .alert {
-    width: 70%;
-  }
-  .list {
-    margin: 2rem auto 0 auto;
-  }
-  .info {
-    flex: 0 0 50%;
-  }
 }
